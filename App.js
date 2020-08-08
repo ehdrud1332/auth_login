@@ -1,19 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import SplashScreen from "./screens/SplashScreen";
 
-export default function App() {
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import RootStackNavigation from "./screens/RootStackNavigation";
+import SignUpScreen from "./screens/SignUpScreen";
+
+const App = () => {
   return (
-    <SplashScreen />
+    // <NavigationContainer>
+    //     <RootStackNavigation />
+    // </NavigationContainer>
+      <SignUpScreen />
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+export default App;

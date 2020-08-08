@@ -4,9 +4,7 @@ import {
     Text,
     TouchableOpacity,
     Dimensions,
-    StyleSheet,
-    Image,
-    Button
+    StyleSheet
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import {LinearGradient} from 'expo-linear-gradient';
