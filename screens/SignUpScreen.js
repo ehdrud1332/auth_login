@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import {LinearGradient} from 'expo-linear-gradient';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import FontAwesome from '@expo/vector-icons/FontAwesome5';
 import Feather from '@expo/vector-icons/Feather';
 
 const SignUpScreen = () => {
@@ -25,23 +25,47 @@ const SignUpScreen = () => {
 
 
     const textInputChange = (val) => {
-
+        if(val.length !== 0) {
+            setData({
+                ...data,
+                email: val,
+                check_textInputChange: true
+            });
+        } else {
+            setData({
+                ...data,
+                email: val,
+                check_textInputChange: false
+            });
+        }
     };
 
     const handlePasswordChange = (val) => {
-
+        setData({
+            ...data,
+            password: val
+        })
     };
 
     const handleConfirmPasswordChange = (val) => {
-
+        setData({
+            ...data,
+            confirm_password: val
+        })
     }
 
     const updateSecureTextEntry = () => {
-
+        setData({
+            ...data,
+            secureTextEntry: !data.secureTextEntry
+        })
     }
 
     const updateConfirmSecureTextEntry = () => {
-
+        setData({
+            ...data,
+            confirm_secureTextEntry: !data.confirm_secureTextEntry
+        })
     }
 
 
@@ -55,10 +79,37 @@ const SignUpScreen = () => {
                 animation="fadeInUpBig"
                 style={styles.footer}
             >
-                <Text style={styles.text_footer}>Email</Text>
+                <Text style={styles.text_footer}>User Name</Text>
                 <View style={styles.action}>
                     <FontAwesome
-                        name="user-o"
+                        name="user-circle"
+                        color="#05375a"
+                        size={20}
+                    />
+                    <TextInput
+                        placeholder="Your UserName"
+                        style={styles.textInput}
+                        autoCapitalize="none"
+                        onChangeText={(val) => textInputChange(val)}
+                    />
+                    {data.check_textInputChange ? (
+                        <Animatable.View
+                            animation="bounceIn"
+                        >
+                            <Feather
+                                name="check-circle"
+                                color="green"
+                                size={20}
+                            />
+                        </Animatable.View>
+                    ) : (null)}
+                </View>
+
+
+                <Text style={[styles.text_footer, {marginTop: 35}]}>Email</Text>
+                <View style={styles.action}>
+                    <FontAwesome
+                        name="envelope"
                         color="#05375a"
                         size={20}
                     />
@@ -85,7 +136,7 @@ const SignUpScreen = () => {
                     marginTop: 35
                 }]}>Password</Text>
                 <View style={styles.action}>
-                    <Feather
+                    <FontAwesome
                         name="lock"
                         color="#05375a"
                         size={20}
