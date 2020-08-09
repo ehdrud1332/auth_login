@@ -12,7 +12,7 @@ import {LinearGradient} from 'expo-linear-gradient';
 import FontAwesome from '@expo/vector-icons/FontAwesome5';
 import Feather from '@expo/vector-icons/Feather';
 
-const SignInScreen = () => {
+const SignInScreen = ({navigation}) => {
 
     const [data, setData] = useState({
         email : "",
@@ -71,6 +71,17 @@ const SignInScreen = () => {
     return (
         <View style={styles.container}>
             <StatusBar backgroundColor="#009387" barStyle="light-content" />
+
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+                <FontAwesome
+                    name={"arrow-left"}
+                    size={25}
+                    color="#fff"
+                    style={{marginTop: 60, marginLeft: 30}}
+                />
+            </TouchableOpacity>
+
+
             <View style={styles.header}>
                 <Text style={styles.text_header}>Login Now</Text>
             </View>
