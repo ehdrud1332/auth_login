@@ -2,13 +2,13 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import RootStackScreen from "./screens/RootStackNavigation";
-import SignUpScreen from "./screens/SignUpScreen";
-import SignInScreen from './screens/SignInScreen';
+import MainTabScreen from "./screens/MainTabScreen";
 
 const App = () => {
   return (
     <NavigationContainer>
-        <RootStackScreen />
+        {/*<RootStackScreen />*/}
+        <MainTabScreen />
     </NavigationContainer>
   );
 }
