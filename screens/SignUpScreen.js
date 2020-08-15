@@ -13,7 +13,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome5';
 import Feather from '@expo/vector-icons/Feather';
 import DismissKeyboard from "../components/DismissKeyboard";
 
-const SignUpScreen = () => {
+const SignUpScreen = ({navigation}) => {
 
     const [data, setData] = useState({
         email: "",
@@ -222,7 +222,7 @@ const SignUpScreen = () => {
                         </LinearGradient>
 
                         <TouchableOpacity
-                            onPress={() => navigation.goBack()}
+                            onPress={() => navigation.navigate("SignInScreen")}
                             style={[styles.signIn, {
                                 borderColor: '#009387',
                                 borderWidth: 1,

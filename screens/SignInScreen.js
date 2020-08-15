@@ -141,31 +141,42 @@ const SignInScreen = ({navigation}) => {
                         </TouchableOpacity>
                     </View>
                     <View style={styles.button}>
-                        <LinearGradient
-                            colors={['#08d4c4', '#01ab9d']}
-                            style={styles.signIn}
-                        >
-                            <Text style={[styles.textSign,{
-                                color: '#fff'
-                            }]}>
-                                Sign Up
-                            </Text>
-                        </LinearGradient>
 
                         <TouchableOpacity
                             onPress={() => navigation.goBack()}
-                            style={[styles.signIn, {
-                                borderColor: '#009387',
+                            style={[styles.signIn,{
                                 borderWidth: 1,
+                                borderColor: '#009387',
                                 marginTop: 15
                             }]}
                         >
+                            <LinearGradient
+                                colors={['#08d4c4', '#01ab9d']}
+                                style={styles.signIn}
+                            >
                             <Text style={[styles.textSign, {
-                                color: '#009387'
+                                color: '#fff'
                             }]}>
                                 Sign In
                             </Text>
+                            </LinearGradient>
                         </TouchableOpacity>
+
+                        <TouchableOpacity
+                            style={[styles.signIn, {
+                                borderColor: '#009387',
+                                marginTop: 15,
+                                borderWidth: 1
+                            }]}
+                            onPress={() => navigation.navigate('SignUpScreen')}
+                        >
+                                <Text style={[styles.textSign,{
+                                    color: '#009387'
+                                }]}>
+                                    Sign Up
+                                </Text>
+                        </TouchableOpacity>
+
                     </View>
                 </Animatable.View>
             </View>
