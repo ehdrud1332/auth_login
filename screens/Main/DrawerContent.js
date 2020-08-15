@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {
     DrawerContentScrollView,
@@ -16,7 +16,16 @@ import {
     Switch
 } from 'react-native-paper';
 
-const DrawerContent = (props) => {
+
+
+export function DrawerContent(props) {
+
+    const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+    const toggleTheme = () => {
+        setIsDarkTheme(!isDarkTheme);
+    }
+
     return (
         <View style={{flex: 1}}>
             <DrawerContentScrollView {...props}>
@@ -98,6 +107,17 @@ const DrawerContent = (props) => {
                                 label="Support"
                                 onPress={() => {props.navigation.navigate("Support")}}
                             />
+                        </Drawer.Section>
+
+                        <Drawer.Section title="Preferences">
+                            <TouchableRipple onPress={() => {toggleTheme()}}>
+                                <View style={styles.preference}>
+                                    <Text>Dark Theme</Text>
+                                    <View pointerEvents="none">
+                                        <Switch value={isDarkTheme}/>
+                                    </View>
+                                </View>
+                            </TouchableRipple>
                         </Drawer.Section>
                     </View>
                 </View>
