@@ -10,6 +10,8 @@ import DetailScreen from "./Main/DetailScreen";
 import ExploreScreen from "./Main/ExploreScreen";
 import ProfileScreen from "./Main/ProfileScreen";
 
+import HomeStackScreen from "./Stack/HomeStackScreen";
+
 const HomeStack = createStackNavigator();
 const DetailStack = createStackNavigator();
 
@@ -22,7 +24,7 @@ const MainTabScreen = () => (
     >
         <Tab.Screen
             name="Home"
-            component={HomeScreen}
+            component={HomeStackScreen}
             options={{
                 tabBarLabel: "Home",
                 tabBarColor: "#009387",
