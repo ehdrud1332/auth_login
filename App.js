@@ -10,7 +10,6 @@ const App = () => {
     <NavigationContainer>
         <RootStackScreen />
     </NavigationContainer>
-    //   <SignInScreen />
   );
 }
 

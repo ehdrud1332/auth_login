@@ -11,6 +11,7 @@ import * as Animatable from 'react-native-animatable';
 import {LinearGradient} from 'expo-linear-gradient';
 import FontAwesome from '@expo/vector-icons/FontAwesome5';
 import Feather from '@expo/vector-icons/Feather';
+import DismissKeyboard from "../components/DismissKeyboard";
 
 const SignInScreen = ({navigation}) => {
 
@@ -69,104 +70,106 @@ const SignInScreen = ({navigation}) => {
 
 
     return (
-        <View style={styles.container}>
-            <StatusBar backgroundColor="#009387" barStyle="light-content" />
+        <DismissKeyboard>
+            <View style={styles.container}>
+                <StatusBar backgroundColor="#009387" barStyle="light-content" />
 
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-                <FontAwesome
-                    name={"arrow-left"}
-                    size={25}
-                    color="#fff"
-                    style={{marginTop: 60, marginLeft: 30}}
-                />
-            </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                    <FontAwesome
+                        name={"arrow-left"}
+                        size={25}
+                        color="#fff"
+                        style={{marginTop: 60, marginLeft: 30}}
+                    />
+                </TouchableOpacity>
 
 
-            <View style={styles.header}>
-                <Text style={styles.text_header}>Login Now</Text>
+                <View style={styles.header}>
+                    <Text style={styles.text_header}>Login Now</Text>
+                </View>
+                <Animatable.View
+                    animation="fadeInUpBig"
+                    style={styles.footer}
+                >
+                    <Text style={styles.text_footer}>Email</Text>
+                    <View style={styles.action}>
+                        <FontAwesome
+                            name={"envelope"}
+                            color={"#05375a"}
+                            size={20}
+                        />
+                        <TextInput
+                            placeholder={"Your Email"}
+                            style={styles.textInput}
+                            autoCapitalize="none"
+                            onChangeText={(val) => textInputChange(val)}
+                        />
+
+                    </View>
+
+                    <Text style={[styles.text_footer, {
+                        marginTop: 35
+                    }]}>Password</Text>
+                    <View style={styles.action}>
+                        <FontAwesome
+                            name="lock"
+                            color="#05375a"
+                            size={20}
+                        />
+
+                        <TextInput
+                            placeholder={"Your Password"}
+                            secureTextEntry={data.secureTextEntry ? true : false}
+                            style={styles.textInput}
+                            autoCapitalize="none"
+                            onchangeText={(val) => handlePasswordChange(val)}
+                        />
+                        <TouchableOpacity onPress={updateSecureTextEntry}>
+                            {data.secureTextEntry ? (
+                                <Feather
+                                    name={"eye-off"}
+                                    color={"grey"}
+                                    size={20}
+                                />
+                            ) : (
+                                <Feather
+                                    name={"eye"}
+                                    color={"grey"}
+                                    size={20}
+                                />
+                                )}
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.button}>
+                        <LinearGradient
+                            colors={['#08d4c4', '#01ab9d']}
+                            style={styles.signIn}
+                        >
+                            <Text style={[styles.textSign,{
+                                color: '#fff'
+                            }]}>
+                                Sign Up
+                            </Text>
+                        </LinearGradient>
+
+                        <TouchableOpacity
+                            onPress={() => navigation.goBack()}
+                            style={[styles.signIn, {
+                                borderColor: '#009387',
+                                borderWidth: 1,
+                                marginTop: 15
+                            }]}
+                        >
+                            <Text style={[styles.textSign, {
+                                color: '#009387'
+                            }]}>
+                                Sign In
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                </Animatable.View>
             </View>
-            <Animatable.View
-                animation="fadeInUpBig"
-                style={styles.footer}
-            >
-                <Text style={styles.text_footer}>Email</Text>
-                <View style={styles.action}>
-                    <FontAwesome
-                        name={"envelope"}
-                        color={"#05375a"}
-                        size={20}
-                    />
-                    <TextInput
-                        placeholder={"Your Email"}
-                        style={styles.textInput}
-                        autoCapitalize="none"
-                        onChangeText={(val) => textInputChange(val)}
-                    />
-
-                </View>
-
-                <Text style={[styles.text_footer, {
-                    marginTop: 35
-                }]}>Password</Text>
-                <View style={styles.action}>
-                    <FontAwesome
-                        name="lock"
-                        color="#05375a"
-                        size={20}
-                    />
-
-                    <TextInput
-                        placeholder={"Your Password"}
-                        secureTextEntry={data.secureTextEntry ? true : false}
-                        style={styles.textInput}
-                        autoCapitalize="none"
-                        onchangeText={(val) => handlePasswordChange(val)}
-                    />
-                    <TouchableOpacity onPress={updateSecureTextEntry}>
-                        {data.secureTextEntry ? (
-                            <Feather
-                                name={"eye-off"}
-                                color={"grey"}
-                                size={20}
-                            />
-                        ) : (
-                            <Feather
-                                name={"eye"}
-                                color={"grey"}
-                                size={20}
-                            />
-                            )}
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.button}>
-                    <LinearGradient
-                        colors={['#08d4c4', '#01ab9d']}
-                        style={styles.signIn}
-                    >
-                        <Text style={[styles.textSign,{
-                            color: '#fff'
-                        }]}>
-                            Sign Up
-                        </Text>
-                    </LinearGradient>
-
-                    <TouchableOpacity
-                        onPress={() => navigation.goBack()}
-                        style={[styles.signIn, {
-                            borderColor: '#009387',
-                            borderWidth: 1,
-                            marginTop: 15
-                        }]}
-                    >
-                        <Text style={[styles.textSign, {
-                            color: '#009387'
-                        }]}>
-                            Sign In
-                        </Text>
-                    </TouchableOpacity>
-                </View>
-            </Animatable.View>
-        </View>
+        </DismissKeyboard>
     );
 };
 
