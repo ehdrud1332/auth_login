@@ -28,7 +28,7 @@ const MainTabScreen = () => (
             component={HomeStackScreen}
             options={{
                 tabBarLabel: "Home",
-                tabBarColor: "#009387",
+                tabBarColor: "#222",
                 tabBarIcon: ({color}) => (
                     <Ionicons name="ios-home" color={color} size={26}/>
                 )
@@ -40,7 +40,7 @@ const MainTabScreen = () => (
             component={HotelScreen}
             options={{
                 tabBarLabel: "Hotel",
-                tabBarColor: "#009387",
+                tabBarColor: "#222",
                 tabBarIcon: ({color}) => (
                     <Ionicons name="ios-home" color={color} size={26}/>
                 )
@@ -52,7 +52,7 @@ const MainTabScreen = () => (
             component={ExploreScreen}
             options={{
                 tabBarLabel: "Explore",
-                tabBarColor: "#009387",
+                tabBarColor: "#222",
                 tabBarIcon: ({color}) => (
                     <Ionicons name="ios-aperture" color={color} size={26}/>
                 )
@@ -64,7 +64,7 @@ const MainTabScreen = () => (
             component={ProfileScreen}
             options={{
                 tabBarLabel: "Profile",
-                tabBarColor: "#009387",
+                tabBarColor: "#222",
                 tabBarIcon: ({color}) => (
                     <Ionicons name="ios-person" color={color} size={26}/>
                 )
